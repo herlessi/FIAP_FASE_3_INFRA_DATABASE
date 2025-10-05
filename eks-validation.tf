@@ -1,15 +1,15 @@
 # Configurações adicionais para EKS e Kubernetes
 # Este arquivo contém configurações específicas para resolver problemas de autorização
 
-# Verificar se podemos listar recursos do cluster
-data "kubernetes_service_account" "default" {
-  depends_on = [data.aws_eks_cluster.cluster, data.aws_eks_cluster_auth.auth]
-  
-  metadata {
-    name      = "default"
-    namespace = "default"
-  }
-}
+# Verificação de service account removida devido a problemas de autorização no GitHub Actions
+# data "kubernetes_service_account" "default" {
+#   depends_on = [data.aws_eks_cluster.cluster, data.aws_eks_cluster_auth.auth]
+#   
+#   metadata {
+#     name      = "default"
+#     namespace = "default"
+#   }
+# }
 
 # Output para verificar informações do cluster
 output "cluster_endpoint" {

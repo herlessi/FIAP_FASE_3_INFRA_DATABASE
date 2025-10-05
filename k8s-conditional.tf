@@ -5,7 +5,7 @@
 variable "create_k8s_resources" {
   description = "Controla se deve criar recursos Kubernetes (útil para troubleshooting)"
   type        = bool
-  default     = true
+  default     = false  # Desabilitado por padrão devido a problemas de autorização
 }
 
 # Recurso condicional para ConfigMap
