@@ -2,15 +2,15 @@ terraform {
   required_providers {
     kubectl = {
       source  = "gavinbunney/kubectl"
-      version = "1.19.0"
+      version = "~> 1.14"
     }
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = "2.38.0"
+      version = "~> 2.23"
     }
     null = {
       source  = "hashicorp/null"
-      version = "3.2.4"
+      version = "~> 3.2"
     }
   }
 }
@@ -39,4 +39,9 @@ provider "kubernetes" {
   
   # Configurações específicas para ambientes CI/CD
   insecure = false
+  
+  # Configurar namespace padrão
+  ignore_annotations = [
+    "kubectl.kubernetes.io/last-applied-configuration"
+  ]
 }

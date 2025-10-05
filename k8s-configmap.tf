@@ -3,7 +3,13 @@ resource "kubernetes_config_map" "database_configmap" {
   depends_on = [data.aws_eks_cluster.cluster, data.aws_eks_cluster_auth.auth]
   
   metadata {
-    name = "database-fiap-fase3"
+    name      = "database-fiap-fase3"
+    namespace = "default"
+    
+    labels = {
+      app     = "fiap-database"
+      managed = "terraform"
+    }
   }
 
   data = {

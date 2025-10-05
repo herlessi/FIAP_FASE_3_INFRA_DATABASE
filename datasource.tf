@@ -10,6 +10,15 @@ data "aws_eks_cluster_auth" "auth" {
   name = "eks-techchallenge-fiap-fase3-2153"
 }
 
+# Verificar se o cluster está acessível
+data "kubernetes_namespace" "default" {
+  depends_on = [data.aws_eks_cluster.cluster, data.aws_eks_cluster_auth.auth]
+  
+  metadata {
+    name = "default"
+  }
+}
+
 data "aws_vpc" "eks_vpc" {
   id = data.aws_eks_cluster.cluster.vpc_config[0].vpc_id
 }

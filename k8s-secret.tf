@@ -3,7 +3,13 @@ resource "kubernetes_secret" "database_secret" {
   depends_on = [data.aws_eks_cluster.cluster, data.aws_eks_cluster_auth.auth]
   
   metadata {
-    name = "database-secret"
+    name      = "database-secret"
+    namespace = "default"
+    
+    labels = {
+      app     = "fiap-database"
+      managed = "terraform"
+    }
   }
 
   type = "Opaque"
