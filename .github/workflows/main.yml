@@ -45,10 +45,13 @@ jobs:
       #     cd terraform
       #     zip -r lambda.zip src
 
+      - name: Terraform Clean
+        run: rm -rf .terraform .terraform.lock.hcl
+        
       # 🧩 6. Inicializa o Terraform
       - name: Terraform Init
         working-directory: .
-        run: terraform init -input=false -migrate-state
+        run: terraform init -input=false
 
       # 🔍 7. Valida a configuração
       - name: Terraform Validate
