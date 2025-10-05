@@ -27,6 +27,7 @@ provider "kubectl" {
   load_config_file       = false
   apply_retry_count      = 3
   # config_path            = "~/.kube/config"
+  config_path            = data.aws_eks_cluster.cluster.kubeconfig_path
 }
 
 provider "kubernetes" {
