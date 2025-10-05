@@ -51,7 +51,7 @@ jobs:
       # 🧩 6. Inicializa o Terraform
       - name: Terraform Init
         working-directory: .
-        run: terraform init -input=false
+        run: terraform init
 
       # 🔍 7. Valida a configuração
       - name: Terraform Validate
