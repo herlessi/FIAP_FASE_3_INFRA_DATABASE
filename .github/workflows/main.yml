@@ -48,8 +48,8 @@ jobs:
       - name: Terraform Clean
         run: rm -rf .terraform .terraform.lock.hcl
 
-      - name: Update kubeconfig for EKS
-        run: aws eks update-kubeconfig --name eks-techchallenge-fiap-fase3-2153 --region us-east-1
+      # - name: Update kubeconfig for EKS
+      #   run: aws eks update-kubeconfig --name eks-techchallenge-fiap-fase3-2153 --region us-east-1
         
       # 🧩 6. Inicializa o Terraform
       - name: Terraform Init
