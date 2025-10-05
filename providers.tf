@@ -25,8 +25,8 @@ provider "kubectl" {
   cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority[0].data)
   token                  = data.aws_eks_cluster_auth.auth.token
   # load_config_file       = false
-  apply_retry_count      = 10
-  config_path            = "~/.kube/config"
+  # apply_retry_count      = 10
+  # config_path            = "~/.kube/config"
 }
 
 provider "kubernetes" {
